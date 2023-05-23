@@ -1,38 +1,181 @@
-.App {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-80%);
+}
+
+.sidebar-header {
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.collapse-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin 0.3s ease;
+}
+
+.content.collapsed {
+  margin-left: 0;
+}
+
+.content .sticky {
+  position: sticky;
+  top: 0;
+  background-color: burlywood;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.content .sticky .ui.header {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content .sticky .ui.button {
+  margin-bottom: 10px;
+}
+
+.content .droppable {
+  border: 5px solid #ccc;
+  padding: 10px;
+  min-height: 200px;
+}
+
+.content .draggable {
+  background-color: #fff;
+  border: 5px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.content .column {
+  margin-bottom: 20px;
+}
+
+.content .column .ui.header {
+  margin-top: 0;
+}
+
+.ui.tiny.modal {
+  position: relative;
+}
+
+.react-datepicker {
+  font-family: inherit;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+}
+
+.ui.button.primary {
+  background-color: #2185d0;
+  color: #fff;
+}
+
+.ui.button.red {
+  background-color: #db2828;
+  color: #fff;
+}
+
+.ui.button.green {
+  background-color: #21ba45;
+  color: #fff;
+}
+
+.ui.input input {
+  width: 100%;
+}
+
+.ui.dropdown.selection {
+  width: 100%;
+}
+
+.ui.form .field > label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ui.form .field:not(.disabled) > label {
+  cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: antiquewhite;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .sidebar.collapsed {
+    transform: translateX(-100%);
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .content.collapsed {
+    margin-left: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .collapse-button {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .content {
+    margin-left: 0;
+    padding-top: 60px;
   }
 }
